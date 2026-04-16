@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(pnpm check *)",
+      "Bash(pnpm dev *)",
+      "Bash(pnpm build *)",
+      "Bash(curl -s \"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/shopify/shopify-original.svg\")",
+      "Bash(curl -s \"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/koajs/koajs-original.svg\")",
+      "Bash(curl -sI \"https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/shopify/shopify-original.svg\")",
+      "Bash(curl -sI \"https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/koajs/koajs-original.svg\")",
+      "Bash(curl -sI \"https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/shopify/shopify-original.svg\")",
+      "Bash(curl -sI \"https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/koajs/koajs-original.svg\")",
+      "Bash(curl -sI \"https://cdn.simpleicons.org/shopify\")",
+      "Bash(curl -sI \"https://cdn.simpleicons.org/koajs\")",
+      "Bash(curl -sI \"https://cdn.simpleicons.org/googleads\")",
+      "Bash(curl -sI \"https://cdn.simpleicons.org/koa\")",
+      "Bash(curl -s \"https://cdn.simpleicons.org/shopify\")",
+      "Bash(curl -s \"https://cdn.simpleicons.org/koa\")",
+      "Bash(curl -s \"https://cdn.simpleicons.org/googleads\")",
+      "Bash(grep -v \"^$\")"
+    ]
+  }
+}

@@ -41,7 +41,6 @@
 
 .dark,
 [color-scheme='dark'] {
-	background-color: pink;
 	--background: oklch(0.129 0.042 264.695);
 	--foreground: oklch(0.984 0.003 247.858);
 	--card: oklch(0.208 0.042 265.755);
@@ -122,8 +121,106 @@
 	}
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	font-family: 'Montserrat', sans-serif;
 	font-optical-sizing: auto;
 	font-style: normal;
+	background-image: radial-gradient(rgb(0 0 0 / 0.1) 1px, transparent 1px);
+	background-size: 28px 28px;
+}
+
+.dark body {
+	background-image: radial-gradient(rgb(255 255 255 / 0.07) 1px, transparent 1px);
+}
+
+/* ── View Transition API ── */
+@keyframes vt-slide-in {
+	from {
+		opacity: 0;
+		translate: 0 14px;
+	}
+}
+
+@keyframes vt-slide-out {
+	to {
+		opacity: 0;
+		translate: 0 -8px;
+	}
+}
+
+::view-transition-old(root) {
+	animation: 180ms cubic-bezier(0.4, 0, 1, 1) both vt-slide-out;
+}
+
+::view-transition-new(root) {
+	animation: 280ms cubic-bezier(0, 0, 0.2, 1) both vt-slide-in;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	::view-transition-old(root),
+	::view-transition-new(root) {
+		animation: none;
+	}
+}
+
+/* ── Shared section heading ── */
+.section-heading {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+}
+
+.section-heading::after {
+	content: '';
+	display: block;
+	width: 48px;
+	height: 3px;
+	margin: 6px auto 0;
+	border-radius: 9999px;
+	background: linear-gradient(90deg, oklch(0.65 0.22 200), oklch(0.55 0.2 240));
+}
+
+/* ── Stagger entry animation ── */
+@keyframes fade-in-up {
+	from {
+		opacity: 0;
+		translate: 0 18px;
+	}
+	to {
+		opacity: 1;
+		translate: 0 0;
+	}
+}
+
+.fade-in-up {
+	animation: fade-in-up 380ms cubic-bezier(0, 0, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.fade-in-up {
+		animation: none;
+	}
+}
+
+/* ── Tech chip badges ── */
+.tech-chip {
+	display: inline-flex;
+	align-items: center;
+	padding: 2px 10px;
+	border-radius: 9999px;
+	font-size: 0.75rem;
+	font-weight: 500;
+	background: oklch(0.55 0.18 240 / 0.1);
+	color: oklch(0.45 0.2 240);
+	border: 1px solid oklch(0.55 0.18 240 / 0.2);
+}
+
+.dark .tech-chip {
+	background: oklch(0.65 0.18 240 / 0.15);
+	color: oklch(0.78 0.18 240);
+	border-color: oklch(0.65 0.18 240 / 0.25);
 }

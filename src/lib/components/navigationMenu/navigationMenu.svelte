@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { afterNavigate } from '$app/navigation';
+	import { page } from '$app/state';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import * as Sheet from '$lib/components/ui/sheet/index.js';
@@ -21,6 +22,11 @@
 	const toggleMode = () => {
 		_toggleMode();
 		document.documentElement.classList.toggle('dark');
+	};
+
+	const isActive = (href: string) => {
+		if (href === '/') return page.url.pathname === '/';
+		return page.url.pathname.startsWith(href);
 	};
 
 	const navBarData = {
@@ -69,32 +75,29 @@
 <nav>
 	{#snippet navItems()}
 		{#each navBarData.items as { download, target, ...item }}
-			<a href={item.href} {download} {target}>
+			<a href={item.href} {download} {target} class="nav-link" class:active={isActive(item.href)}>
 				<Button class="flex flex-row items-center justify-center gap-2" variant="ghost">
-					<span class="text-xl"><item.icon /></span>
+					<span class="text-base"><item.icon /></span>
 					<span>{item.title}</span>
 				</Button>
 			</a>
 		{/each}
 	{/snippet}
 
-	<div
-		class="absolute top-0 right-0 left-0 z-10 flex h-[50px] w-full flex-row items-center border-1 border-b bg-[--bg] px-4 backdrop-blur-xl sm:px-8"
-		style="--bg : hsl(var(--background) / 0.5)"
-	>
+	<div class="nav-bar absolute top-0 right-0 left-0 z-10 flex h-[52px] w-full flex-row items-center px-4 sm:px-8">
 		<!-- larger than sm -->
 		<div class="hidden w-full flex-row items-center sm:hidden md:flex">
-			<a href={'/'}>
-				<h2 class="flex items-center justify-center font-mono text-[clamp(1rem,2vw,2rem)]">
-					<span class="mr-2 text-xl">{`</>`}</span>
-					<span>{'Prashanth Mittakola'}</span>
+			<a href={'/'} class="brand-link">
+				<h2 class="brand flex items-center justify-center font-mono text-[clamp(0.9rem,1.8vw,1.3rem)] font-semibold">
+					<span class="brand-icon mr-2">{`</>`}</span>
+					<span>Prashanth Mittakola</span>
 				</h2>
 			</a>
-			<div class="flex flex-[2] flex-row items-center justify-center gap-2">
+			<div class="flex flex-[2] flex-row items-center justify-center gap-1">
 				{@render navItems()}
 			</div>
-			<Button onclick={toggleMode} variant="ghost">
-				<span class="text-xl">
+			<Button onclick={toggleMode} variant="ghost" class="rounded-full">
+				<span class="text-base">
 					<SunMoon />
 				</span>
 			</Button>
@@ -102,10 +105,10 @@
 
 		<!-- sm -->
 		<div class="flex w-full flex-row items-center sm:flex md:hidden">
-			<a href={'/'} class="flex flex-[2] flex-row items-center justify-center">
-				<h2 class="flex items-center justify-center font-mono text-[clamp(1rem,2vw,2rem)]">
-					<span class="mr-2">{`</>`}</span>
-					<span>{'Prashanth Mittakola'}</span>
+			<a href={'/'} class="brand-link flex flex-[2] flex-row items-center justify-center">
+				<h2 class="brand flex items-center justify-center font-mono text-[clamp(0.9rem,2vw,1.3rem)] font-semibold">
+					<span class="brand-icon mr-2">{`</>`}</span>
+					<span>Prashanth Mittakola</span>
 				</h2>
 			</a>
 			<div class="flex flex-row items-center justify-end">
@@ -125,7 +128,7 @@
 								class="flex flex-row items-center justify-center gap-2"
 								variant="ghost"
 							>
-								<span class="text-xl"><SunMoon /></span>
+								<span class="text-base"><SunMoon /></span>
 								<span>{mode.current}</span>
 							</Button>
 						</a>
@@ -140,6 +143,49 @@
 	nav {
 		display: flex;
 		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
+	}
+
+	.nav-bar {
+		border-bottom: 1px solid oklch(0 0 0 / 0.08);
+		background: oklch(0.98 0.005 240 / 0.7);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+	}
+
+	:global(.dark) .nav-bar {
+		border-bottom-color: oklch(1 0 0 / 0.08);
+		background: oklch(0.129 0.042 265 / 0.75);
+	}
+
+	.brand-link {
+		text-decoration: none;
+	}
+
+	.brand {
+		color: inherit;
+	}
+
+	.brand-icon {
+		background: linear-gradient(135deg, oklch(0.65 0.22 200), oklch(0.55 0.2 240));
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		color: transparent;
+		font-weight: 700;
+	}
+
+	.nav-link {
+		text-decoration: none;
+		position: relative;
+	}
+
+	.nav-link.active :global(button) {
+		background-color: oklch(0.55 0.18 240 / 0.12);
+		color: oklch(0.5 0.2 240);
+	}
+
+	:global(.dark) .nav-link.active :global(button) {
+		background-color: oklch(0.65 0.18 240 / 0.15);
+		color: oklch(0.75 0.18 240);
 	}
 </style>

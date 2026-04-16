@@ -6,7 +6,6 @@ export const data = {
 		'Golang',
 		'jQuery',
 		'Fabric.js',
-		// 'SVG.js',
 		'React.js',
 		'Next.js',
 		'Svelte.js',
@@ -16,8 +15,8 @@ export const data = {
 		'Koa.js',
 		'MongoDB',
 		'Shopify Development',
-		'Python'
-		// 'Digital Marketing'
+		'Python',
+		'Digital Marketing'
 	],
 	skillsWithDevIcons: {
 		HTML: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg',
@@ -40,14 +39,14 @@ export const data = {
 		'Bun.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bun/bun-original.svg',
 		'Express.js':
 			'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original-wordmark.svg',
-		'Koa.js': '',
+		'Koa.js': 'https://cdn.simpleicons.org/koa/6EA6F7',
 		MongoDB:
 			'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg',
 		Python:
 			'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg',
 		json: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/json/json-original.svg',
-		'Shopify Development': '',
-		'Digital Marketing': ''
+		'Shopify Development': 'https://cdn.simpleicons.org/shopify',
+		'Digital Marketing': 'https://cdn.simpleicons.org/googleads'
 	},
 	images: {
 		profileImage: '/images/prashanth.jpg',
