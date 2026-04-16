@@ -34,22 +34,14 @@
 				<p class="text-2xl font-bold text-cyan-600">3</p>
 				<Card.Title class="text-center text-xl">Apple earphones scroll effect</Card.Title>
 				<Card.Content class="flex flex-col justify-center gap-4">
-					Apple earphones scroll effect.
+					Smooth Apple-style earphones scroll animation built with pure HTML, CSS, and JavaScript..
 				</Card.Content>
-			</Card.Root>
-		</a>
-
-		<a href="https://codepen.io/prashant-mittakola/full/abpRxLN" class="project">
-			<Card.Root class="my-4 w-full">
-				<p class="text-2xl font-bold text-cyan-600">4</p>
-				<Card.Title class="text-center text-xl">Movies landing page</Card.Title>
-				<Card.Content class="flex flex-col justify-center gap-4">Movies landing page.</Card.Content>
 			</Card.Root>
 		</a>
 
 		<a href="https://next-js-13-movies-demo-app.vercel.app/" class="project">
 			<Card.Root class="my-4 w-full">
-				<p class="text-2xl font-bold text-cyan-600">5</p>
+				<p class="text-2xl font-bold text-cyan-600">4</p>
 				<Card.Title class="text-center text-xl">Next.js + Framer Motion</Card.Title>
 				<Card.Content class="flex flex-col justify-center gap-4">
 					<div>
